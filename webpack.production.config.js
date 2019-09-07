@@ -119,7 +119,6 @@ module.exports = {
             meta: {
                 description: 'WebPack 4 - Image Test Training'
             }
-
         })
     ]
 }
