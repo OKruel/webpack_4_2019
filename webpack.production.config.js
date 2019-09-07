@@ -9,14 +9,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     //That is the entry point of the app. The first file it will check and then check the other files inside
-    entry: './src/index.js',
+    //We created two entry points so that we have multiple HTML pages in build
+    entry: {
+        style: './src/style-test.js',
+        rocket: './src/rocket.js'    
+    },
     //It is the options of how your built app will look like
     output: {
         //Here we can give the output file a name.
         //The browser caches the files that it downloaded for the first time so it will not need to download them again if you refresh the page
         //In case of refresh it will always use the file in the cache to show the web page, but if you change a JS file, the browser will not see because of the cache.
         //For that we use the [contenthash] so webpack sends the new version of the file in case of a page refresh
-        filename: 'bundle.[contenthash].js',
+        //Added the [name] so the build can create according with ENTRY POINT OBJECT KEY
+        filename: '[name].[contenthash].js',
         //This is the path in which will contains all the build files.changes
         //IT MUST BE AN ABSOLUTE PATH. That is why we use the path library
         path: path.resolve(__dirname, './dist'),
@@ -78,7 +83,7 @@ module.exports = {
         //TODO new TerserPlugin(),
         //As the build process create only one file. This plugin creates another file that contains only the minified styles 
         new MiniCssExtractPlugin({
-            filename: 'styles.[contenthash].css'
+            filename: '[name].[contenthash].css'
         }),
         //This emptys the dist folder created by the build process before creating it again.
         //It can also empty any other folder you choose
@@ -92,11 +97,19 @@ module.exports = {
         //It is created because the [contenthash] comand changes the hash of the file every time there is a change in the files.
         //So instead of changing the HTML file all the time another HTML file is created every time we run build
         new HtmlWebpackPlugin({
-            title: 'WebPack 4 - Training',
-            filename: 'custom_index.html',
+            title: 'WebPack 4 - Style Test Training',
+            chunks: ['style'],
+            filename: 'style-test.html',
             meta: {
-                description: 'WebPack 4 - Training'
+                description: 'WebPack 4 - Style Test Training'
             }
+        }),
+        //Added a second HTML file so I can have multiple pages build
+        new HtmlWebpackPlugin({
+            title: 'WebPack 4 - Image Training',
+            filename: 'rocket.html',
+            chunks: ['rocket']
+
         })
     ]
 }

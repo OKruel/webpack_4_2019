@@ -3,7 +3,7 @@ $button-background-color: green;
 $button-font-color: white;
 $text-font-color: red;
 
-.hello-world-btn {
+.style-test-btn {
     font-size: $font-size;
     padding: 7px 15px;
     background: $button-background-color;
@@ -11,7 +11,7 @@ $text-font-color: red;
     outline: none;
 }
 
-.hello-world-text {
+.style-test-text {
     color: $text-font-color;
     font-weight: bold;
     

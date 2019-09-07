@@ -1,13 +1,12 @@
-import HelloWorldBtn from './components/hello-world-btn/hello-world-btn'
-import addImage from './add-image'
+import HelloWorldBtn from './components/style-test-btn/style-test-btn'
 import Heading from './components/heading/heading'
+import './index.css'
 
 
 const heading = new Heading()
-heading.render()
+heading.render('Style Test')
 const helloWorldBtn = new HelloWorldBtn();
 helloWorldBtn.render()
-addImage()
 
 if(process.env.NODE_ENV === 'production') {
     console.log('production mode')
