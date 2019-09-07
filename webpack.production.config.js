@@ -32,6 +32,11 @@ module.exports = {
     //After you run build in a production mode any error will be SHOWN in  the bundle.js file 
     //After you run build in a development mode any error will be SHOWN in the original file 
     mode: 'production',
+    optimization: {
+        splitChunks: {
+            chunks: "all"
+        }
+    },
     //For different types of files WEBPACK needs a specific LOADER. There for it needs a set of rules to aply the loaders.
     module: {
         rules: [
@@ -98,6 +103,7 @@ module.exports = {
         //So instead of changing the HTML file all the time another HTML file is created every time we run build
         new HtmlWebpackPlugin({
             title: 'WebPack 4 - Style Test Training',
+            //Chunks are related to the ENTRY POINT OBJECT KEY
             chunks: ['style'],
             filename: 'style-test.html',
             meta: {
@@ -108,7 +114,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'WebPack 4 - Image Training',
             filename: 'rocket.html',
-            chunks: ['rocket']
+            //Chunks are related to the ENTRY POINT OBJECT KEY
+            chunks: ['rocket'],
+            meta: {
+                description: 'WebPack 4 - Image Test Training'
+            }
 
         })
     ]
