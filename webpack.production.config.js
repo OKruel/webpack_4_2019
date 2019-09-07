@@ -1,5 +1,8 @@
+//!ATENCION -> THE PRODUCTION MODE IS CARRIES ALL THE CONFIGURATION EXCEPT FOR THE TERSER PLUGIN BECAUSE COMES BY DEFAULT
+
 const path = require('path')
-const TerserPlugin = require('terser-webpack-plugin')
+//!In PRODUCTION MODE the TerserPlugin comes by default so it is not NECESSARY
+//TODO const TerserPlugin = require('terser-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -20,7 +23,10 @@ module.exports = {
         //It is a path to inform WEBpack where are our ASSETS (images and videos)
         publicPath: ''
     },
-    mode: 'none',
+    //This sets if you are on PRODUCTION MODE or DEVELOPMENT MODE
+    //After you run build in a production mode any error will be SHOWN in  the bundle.js file 
+    //After you run build in a development mode any error will be SHOWN in the original file 
+    mode: 'production',
     //For different types of files WEBPACK needs a specific LOADER. There for it needs a set of rules to aply the loaders.
     module: {
         rules: [
@@ -68,7 +74,8 @@ module.exports = {
     //The plugins are used to do something that the loaders CAN NOT DO
     plugins: [
         //This plugin minify the JS files
-        new TerserPlugin(),
+        //!In PRODUCTION MODE the TerserPlugin comes by default so it is not NECESSARY
+        //TODO new TerserPlugin(),
         //As the build process create only one file. This plugin creates another file that contains only the minified styles 
         new MiniCssExtractPlugin({
             filename: 'styles.[contenthash].css'
