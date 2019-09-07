@@ -84,6 +84,12 @@ module.exports = {
         //It serves to the build process to create a index.html file in the dist folder
         //It is created because the [contenthash] comand changes the hash of the file every time there is a change in the files.
         //So instead of changing the HTML file all the time another HTML file is created every time we run build
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            title: 'WebPack 4 - Training',
+            filename: 'custom_index.html',
+            meta: {
+                description: 'WebPack 4 - Training'
+            }
+        })
     ]
 }
