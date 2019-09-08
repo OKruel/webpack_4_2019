@@ -18,7 +18,7 @@ module.exports = {
     mode: 'development',
     devServer: {
         contentBase: path.resolve(__dirname, './dist'),
-        index: 'custom_index.html',
+        index: 'style-test.html',
         port: 9000
     },
     module: {
@@ -63,7 +63,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             title: 'WebPack 4 - Style Training',
-            filename: 'style-index.html',
+            filename: 'style-test.html',
             chunks: ['style'],
             meta: {
                 description: 'WebPack 4 - Style Training'
