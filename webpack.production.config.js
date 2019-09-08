@@ -104,7 +104,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'WebPack 4 - Style Test Training',
             //Chunks are related to the ENTRY POINT OBJECT KEY
-            chunks: ['style'],
+            chunks: ['style', 'vendors~rocket~style'],
             filename: 'style-test.html',
             meta: {
                 description: 'WebPack 4 - Style Test Training'
@@ -115,7 +115,7 @@ module.exports = {
             title: 'WebPack 4 - Image Training',
             filename: 'rocket.html',
             //Chunks are related to the ENTRY POINT OBJECT KEY
-            chunks: ['rocket'],
+            chunks: ['rocket', 'vendors~rocket~style'],
             meta: {
                 description: 'WebPack 4 - Image Test Training'
             }
