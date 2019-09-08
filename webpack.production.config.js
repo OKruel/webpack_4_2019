@@ -26,7 +26,7 @@ module.exports = {
         //IT MUST BE AN ABSOLUTE PATH. That is why we use the path library
         path: path.resolve(__dirname, './dist'),
         //It is a path to inform WEBpack where are our ASSETS (images and videos)
-        publicPath: ''
+        publicPath: '/static/'
     },
     //This sets if you are on PRODUCTION MODE or DEVELOPMENT MODE
     //After you run build in a production mode any error will be SHOWN in  the bundle.js file 
