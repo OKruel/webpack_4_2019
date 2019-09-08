@@ -12,7 +12,7 @@ module.exports = {
     //We created two entry points so that we have multiple HTML pages in build
     entry: {
         style: './src/style-test.js',
-        rocket: './src/rocket.js'    
+        rocket: './src/rocket.js'
     },
     //It is the options of how your built app will look like
     output: {
@@ -65,7 +65,20 @@ module.exports = {
                 test: /\.scss$/,
                 use: [
                     //! ATENÇÃO - Webpack reads the loader from RIGHT to LEFT
-                    MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: function () {
+                                return [
+                                    require('precss'),
+                                    require('autoprefixer')
+                                ]
+                            }
+                        }
+                    },
+                    'sass-loader'
                 ]
             },
             {
@@ -97,7 +110,7 @@ module.exports = {
         //This emptys the dist folder created by the build process before creating it again.
         //It can also empty any other folder you choose
         new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns:[
+            cleanOnceBeforeBuildPatterns: [
                 '**/*',
                 path.join(process.cwd(), 'build/**/*')
             ]

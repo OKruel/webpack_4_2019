@@ -9,6 +9,11 @@ $text-font-color: red;
     background: $button-background-color;
     color: $button-font-color;
     outline: none;
+    display: block;
+    width: 400px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .style-test-text {

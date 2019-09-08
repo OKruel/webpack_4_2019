@@ -5,7 +5,7 @@ class HelloWorldBtn {
     render() {
         const body = document.querySelector('body')
         const button = document.createElement('button')
-        button.innerHTML = 'Testing WebPack Styles Loader '
+        button.innerHTML = 'Click here to Test WebPack Styles Loader '
         button.classList.add('style-test-btn')
         button.onclick = () => {
             const p = document.createElement('p');

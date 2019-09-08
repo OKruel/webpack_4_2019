@@ -1,0 +1,20 @@
+@import "~bootstrap/scss/bootstrap";
+
+nav {
+  background-color: white;
+}
+
+.unactive {
+  background-color: whitesmoke;
+  border: 1px solid black;
+}
+
+.myActive {
+  background-color: blue;
+  color: white;
+  border: 1px solid blue;
+}
+
+a {
+  text-align: center;
+}
