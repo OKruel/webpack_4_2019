@@ -6,9 +6,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        style: './src/style-test.js',
+        rocket: './src/rocket.js'
+    },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, './dist'),
         publicPath: ''
     },
@@ -59,10 +62,19 @@ module.exports = {
             ]
         }),
         new HtmlWebpackPlugin({
-            title: 'WebPack 4 - Training',
-            filename: 'custom_index.html',
+            title: 'WebPack 4 - Style Training',
+            filename: 'style-index.html',
+            chunks: ['style'],
             meta: {
-                description: 'WebPack 4 - Training'
+                description: 'WebPack 4 - Style Training'
+            }
+        }),
+        new HtmlWebpackPlugin({
+            title: 'WebPack 4 - Image Training',
+            filename: 'rocket.html',
+            chunks: ['rocket'],
+            meta: {
+                description: 'WebPack 4 - Image Training'
             }
         })
     ]

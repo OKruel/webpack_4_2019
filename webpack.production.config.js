@@ -32,9 +32,13 @@ module.exports = {
     //After you run build in a production mode any error will be SHOWN in  the bundle.js file 
     //After you run build in a development mode any error will be SHOWN in the original file 
     mode: 'production',
+    //Is use to create separated package FOR EACH dependency. Here we have lodash and react
     optimization: {
         splitChunks: {
-            chunks: "all"
+            //Use to identify wich depencies will have their own package
+            chunks: "all",
+            //Minimum size of the dependency to include in their own package
+            minSize: 5000,
         }
     },
     //For different types of files WEBPACK needs a specific LOADER. There for it needs a set of rules to aply the loaders.
@@ -104,7 +108,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'WebPack 4 - Style Test Training',
             //Chunks are related to the ENTRY POINT OBJECT KEY
-            chunks: ['style', 'vendors~rocket~style'],
+            chunks: ['style', 'vendors~rocket~style', 'vendors~style'],
             filename: 'style-test.html',
             meta: {
                 description: 'WebPack 4 - Style Test Training'

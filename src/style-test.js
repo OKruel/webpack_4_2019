@@ -2,10 +2,12 @@ import HelloWorldBtn from './components/style-test-btn/style-test-btn'
 import Heading from './components/heading/heading'
 import './index.css'
 import _ from 'lodash'
+import React from 'react'
 
 
 const heading = new Heading()
 heading.render(_.upperFirst('style Test'))
+// heading.render('style Test')
 const helloWorldBtn = new HelloWorldBtn();
 helloWorldBtn.render()
 
